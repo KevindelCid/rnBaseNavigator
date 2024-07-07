@@ -16,3 +16,10 @@ jobs:
         java --version
         node --version
         npm --version
+
+
+    - name: build
+      run: |
+        cd android
+        chmod +x gradlew
+        ./gradlew build

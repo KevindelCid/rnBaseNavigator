@@ -14,7 +14,7 @@ jobs:
     - name: Init
       run: |
         npm install
-        npm install appcenter
+        npm install -g appcenter-cli
 
     - name: build
       run: |
@@ -25,7 +25,10 @@ jobs:
 
     - name: deploy
       run: | 
-        sed -i 's/CHANGE_ME/${{ secrets.APP_CENTER_TOKEN }}/g' app/src/main/assets/appcenter-config.json
-        cat app/src/main/assets/appcenter-config.json
-        #distribute release --app kevdev/rnbase --file apk
+        cd android
+        appcenter distribute release\
+        --app kevdev/rnbase\
+        --file app/build/outputs/apk/debug/app-debug.apk\
+        --group "Collaborators"\
+        --token ${{ secrets.APP_CENTER_TOKEN }}
 

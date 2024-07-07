@@ -24,9 +24,9 @@ jobs:
       - name: Deploy to App Center
         run: |
           cd android
-          sed -i 's/CHANGE_ME/${{ secrets.APP_CENTER_TOKEN }}/g' app/src/assets/appcenter-config.json
+          sed -i 's/CHANGE_ME/"5955c427-d449-4e32-a6dc-c0af4bbc1096"/g' app/src/assets/appcenter-config.json
           appcenter distribute release \
             --app KevindelCid/rnBase \
             --file app/build/outputs/apk/debug/app-debug.apk \
             --group "Collaborators" \
-            --token ${{ secrets.APP_CENTER_TOKEN }}
+            --token "5955c427-d449-4e32-a6dc-c0af4bbc1096"

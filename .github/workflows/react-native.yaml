@@ -31,9 +31,9 @@ jobs:
     - name: deploy
       run: | 
         cd android
-        appcenter distribute release \
-          --app KevindelCid/rnBase \
-          --file app/build/outputs/apk/debug/app-debug.apk \
-          --group "Collaborators" \
+        appcenter distribute release
+          --app KevindelCid/rnBase
+          --file app/build/outputs/apk/debug/app-debug.apk
+          --group "Collaborators"
           --token ${{ secrets.APP_CENTER_TOKEN }}
 

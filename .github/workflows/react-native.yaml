@@ -27,7 +27,8 @@ jobs:
         chmod +x gradlew
         ./gradlew build
         find . -name '*.apk'
-
+    - name: Verificar ruta del APK
+      run: echo "La ruta del APK es: $GITHUB_WORKSPACE/android/app/build/outputs/apk/debug/app-debug.apk"
     - name: deploy
       run: | 
         cd android
